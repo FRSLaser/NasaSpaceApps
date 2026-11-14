@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astro Vitals</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <h1>Astro Vitals</h1>
+  <div class="bar">
+    <label>Location <select id="env"></select></label>
+    <span id="day"></span><span id="level"></span><span id="streak"></span>
+    <button id="next" class="ghost">Start next day</button>
+    <button id="demo" class="ghost">Load demo week</button>
+    <button id="reset" class="ghost">Reset</button>
+  </div>
+</header>
+<div id="alert" hidden></div>
+<main>
+  <section class="body">
+    <h2>Your body</h2>
+    <p class="muted">Select a body area to see its health status.</p>
+    <svg id="fig" viewBox="0 0 200 380" role="group" aria-label="Body map">
+      <ellipse data-part="body" class="part ring" cx="100" cy="190" rx="92" ry="182"/>
+      <circle data-part="head" class="part" cx="100" cy="52" r="32" tabindex="0"/>
+      <rect data-part="chest" class="part" x="62" y="92" width="76" height="82" rx="30" tabindex="0"/>
+      <rect data-part="gut" class="part" x="68" y="180" width="64" height="66" rx="24" tabindex="0"/>
+      <rect data-part="legs" class="part" x="66" y="254" width="30" height="100" rx="14" tabindex="0"/>
+      <rect data-part="legs" class="part" x="104" y="254" width="30" height="100" rx="14" tabindex="0"/>
+      <rect class="arm" x="30" y="98" width="24" height="108" rx="12"/>
+      <rect class="arm" x="146" y="98" width="24" height="108" rx="12"/>
+    </svg>
+    <div id="rad"></div>
+  </section>
+  <section id="panel" class="panel"></section>
+  <section class="side">
+    <h2>Daily check-in</h2>
+    <form id="form"></form>
+    <h2>Trend</h2>
+    <div id="tabs"></div>
+    <div id="chart"></div>
+    <h2>Badges</h2>
+    <ul id="badges"></ul>
+  </section>
+</main>
+<footer>Training tool built on NASA HRP and CSA resources. Ranges are illustrative, not medical advice.</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
